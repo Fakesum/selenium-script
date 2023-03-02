@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/selenium_script/__init__.py
+src/selenium_script/__main__.py
+src/selenium_script.egg-info/PKG-INFO
+src/selenium_script.egg-info/SOURCES.txt
+src/selenium_script.egg-info/dependency_links.txt
+src/selenium_script.egg-info/top_level.txt

@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: selenium-script
+Version: 0.0.1a0
+Summary: A Easy Running and Testing Env for Selenium.
+Author-email: Fakesum <worldanvilbild+github@gmail.com>
+Project-URL: Homepage, https://github.com/Fakesum/selenium-script
+Project-URL: Bug Tracker, https://github.com/Fakesum/cimport/selenium-script
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# WIP
