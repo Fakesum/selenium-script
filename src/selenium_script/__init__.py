@@ -1,6 +1,6 @@
-from seleniumbase import SB
-
 __version__ = "0.0.1a"
+
+from seleniumbase import SB
 
 def _parse_commands(raw_commands, *script_args):
     """
@@ -72,6 +72,9 @@ def run_selenium_script(*script_args, name: str = None, uc: bool | None = None):
             eval("driver."+command["command"])(*command["args"])
 
 def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None):
+    """
+        Run Selenium Script
+    """
     with SB(uc=uc) as driver:
         if name != None:
             # Read the raw lines of the sel file

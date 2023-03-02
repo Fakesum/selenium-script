@@ -8,6 +8,9 @@ if __name__ == "__main__":
         uc = True
         arguments.remove("--uc")
     
+    if "--test-mode" in arguments:
+        test_mode = True
+        arguments.remove("--uc")
     starting_script = None
     
     for arg in arguments:
