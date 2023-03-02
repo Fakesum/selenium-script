@@ -1,6 +1,6 @@
-__version__ = "0.0.1a"
+__version__ = "0.0.1b"
 
-from seleniumbase import SB
+from seleniumbase import SB, BaseCase
 
 def _parse_commands(raw_commands, *script_args):
     """
@@ -71,11 +71,12 @@ def run_selenium_script(*script_args, name: str = None, uc: bool | None = None):
                 exec(command["args"][0] + " = " + command["args"][1])
             eval("driver."+command["command"])(*command["args"])
 
-def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None):
+def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None, test_mode: bool = False):
     """
         Run Selenium Script
     """
     with SB(uc=uc) as driver:
+        driver: BaseCase = driver
         if name != None:
             # Read the raw lines of the sel file
             raw_commands = [line.replace("\n", "") for line in open(name).readlines()]
@@ -86,6 +87,9 @@ def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None
                 if command == 'py_declare_variable':
                     exec(command["args"][0] + " = " + command["args"][1])
                 eval("driver."+command["command"])(*command["args"])
+                if test_mode:
+                    open("current_page.html", "w").write(driver.get_page_source())
+                    driver.save_screenshot("screen.png")
 
         while True:
             try:
@@ -99,3 +103,6 @@ def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None
             if command == "exit":
                 break
             eval("driver."+command["command"])(*command["args"])
+            if test_mode:
+                open("current_page.html", "w").write(driver.get_page_source())
+                driver.save_screenshot("screen.png")
