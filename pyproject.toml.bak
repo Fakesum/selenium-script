@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "selenium-script"
-version = "0.0.1a"
+version = "0.0.3b"
 authors = [
   { name="Fakesum", email="worldanvilbild+github@gmail.com" },
 ]
