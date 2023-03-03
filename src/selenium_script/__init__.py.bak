@@ -1,4 +1,4 @@
-__version__ = "0.0.3b"
+__version__ = "0.0.4a"
 
 from seleniumbase import SB, BaseCase
 
@@ -103,11 +103,12 @@ def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None
             except Exception as e:
                 print(e)
                 break
-            if command == 'py_declare_variable':
-                exec(command["args"][0] + " = " + command["args"][1])
+            if command["command"] == 'py_declare_variable':
+                globals().update({command["args"][0]: command["args"][1]})
             
-            if command == "exit":
+            if command["command"] == "exit":
                 break
+
             eval("driver."+command["command"])(*command["args"])
             if test_mode:
                 open("current_page.html", "w").write(driver.get_page_source())

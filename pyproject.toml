@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0", "seleniumbase"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "selenium-script"
-version = "0.0.3c"
+name = "selenium_script"
+version = "0.1.0a"
 authors = [
   { name="Fakesum", email="worldanvilbild+github@gmail.com" },
 ]
