@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 **/*.bak
-dist
+dist/
 test.py
