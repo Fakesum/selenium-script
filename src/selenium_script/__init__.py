@@ -73,9 +73,9 @@ def run_selenium_script(*script_args, name: str | None = None, uc: bool | None =
     
     with SB(uc=uc) as driver:
         for command in commands:
-            if command == 'py_declare_variable':
-                exec(command["args"][0] + " = " + command["args"][1])
-            eval("driver."+command["command"])(*command["args"])
+             if command["command"] == 'py_declare_variable':
+                globals().update({command["args"][0]: command["args"][1]})
+            yield eval("driver."+command["command"])(*command["args"])
 
 def selenium_script_shell(*args, name: None | str = None, uc: bool | None = None, test_mode: bool = False):
     """
